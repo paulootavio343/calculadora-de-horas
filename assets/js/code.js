@@ -8,6 +8,10 @@
         let time1 = document.getElementById('time-1').value.split(':');
         let time2 = document.getElementById('time-2').value.split(':');
 
+        if (time1[0] === '' || time1[1] === '' || time2[0] === '' || time2[1] === '') {
+            return 'Insira um horário válido';
+        }
+
         function convertTime(time) {
             let hours = parseInt(time[0]);
             let minutes = parseInt(time[1]);
