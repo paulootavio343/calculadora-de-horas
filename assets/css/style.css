@@ -101,12 +101,10 @@ img {
     font-weight: inherit;
     font-family: inherit;
     margin-bottom: 1rem;
-    outline: none;
 }
 
 .section-1-content .form .form-group-result input {
     text-align: center;
-    outline: none;
 }
 
 .section-1-content .form .form-group-buttons {
@@ -133,7 +131,8 @@ img {
     outline: none;
 }
 
-.section-1-content .form .form-group-buttons button:hover {
+.section-1-content .form .form-group-buttons button:hover,
+.section-1-content .form .form-group-buttons button:focus {
     background-color: var(--dark-blue-color);
     color: var(--white-color);
 }
@@ -153,15 +152,7 @@ img {
 .footer-content {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 1rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 2rem;
-}
-
-.footer-content-social ul {
-    list-style: none;
-    display: inline-flex;
-    gap: 1rem;
 }

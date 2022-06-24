@@ -10,16 +10,20 @@
     <meta name="author" content="Paulo Otávio">
     <meta name="description" content="Site para somar ou subtrair horas.">
     <meta name="keywords" content="calculadora, horas, somar, subtrair">
+    <title>Calculadora de Horas</title>
 
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
+    <!-- Style -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/code.js" type="text/javascript" defer></script>
 
-    <title>Calculadora de Horas</title>
+    <!-- Code -->
+    <script src="assets/js/code.js" type="text/javascript" defer></script>
+    <script src="assets/js/service-worker-registration.js" type="text/javascript" defer></script>
 </head>
 
 <body>
@@ -32,12 +36,12 @@
 
                 <div class="section-1-content">
                     <div class="form">
-                        <div class="form-group">
+                        <div class="form-group time-input">
                             <label for="time-1">Hora 1</label>
                             <input type="time" name="time-1" id="time-1">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group time-input">
                             <label for="time-2">Hora 2</label>
                             <input type="time" name="time-2" id="time-2">
                         </div>
@@ -62,17 +66,10 @@
             <div class="footer-content">
                 <div class="footer-content-text">
                     <p>
-                        Site feito por Paulo Otávio
+                        <a href="https://github.com/paulootavio343/calculadora-de-horas">
+                            Repositório no GitHub
+                        </a>
                     </p>
-                </div>
-
-                <div class="footer-content-social">
-                    <ul>
-                        <li><a href="http://twitter.com/PauloCastoldi" rel="nofollow" target="_blank">Twitter</a></li>
-                        <li><a href="http://github.com/paulootavio343" rel="nofollow" target="_blank">GitHub</a></li>
-                        <li><a href="https://linkedin.com/in/paulo-otavio-castoldi" rel="nofollow"
-                                target="_blank">LinkedIn</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

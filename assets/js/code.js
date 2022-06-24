@@ -1,7 +1,25 @@
 (function () {
+    const inputs = document.querySelectorAll('.time-input input')
     const buttonAdd = document.getElementById('btn-add');
     const buttonSubtract = document.getElementById('btn-subtract');
     const result = document.getElementById('result');
+
+    inputs.forEach(input => {
+        input.addEventListener('keypress', event => {
+            if (event.key === 'Enter') {
+                result.value = getTime(true, false) // add = true, subtract = false
+                buttonAdd.focus();
+            }
+        })
+    })
+
+    buttonAdd.addEventListener('click', () => {
+        result.value = getTime(true, false); // add = true, subtract = false
+    });
+
+    buttonSubtract.addEventListener('click', () => {
+        result.value = getTime(false, true); // add = false, subtract = true
+    });
 
     function getTime(add, subtract) {
         let days = 0;
@@ -10,12 +28,6 @@
 
         if (time1[0] === '' || time1[1] === '' || time2[0] === '' || time2[1] === '') {
             return 'Insira um horário válido';
-        }
-
-        function convertTime(time) {
-            let hours = parseInt(time[0]);
-            let minutes = parseInt(time[1]);
-            return hours * 3600 + minutes * 60;
         }
 
         let time1InSeconds = convertTime(time1);
@@ -41,31 +53,22 @@
         let minutes = Math.floor(resultInSeconds / 60);
         resultInSeconds -= minutes * 60;
 
-        function fillWithZeros(str, length) {
-            const counter = length - String(str).length;
-            return '0'.repeat(counter > 0 ? counter : '0') + str;
-        }
-
         days = days.toString();
-        hours = fillWithZeros(hours.toString(), 2);
-        minutes = fillWithZeros(minutes.toString(), 2);
+        hours = hours < 10 ? `0${hours}` : hours;
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
 
-        if (days > 0) {
-            if (days > 1) {
-                return `Daqui a ${days} dias às ${hours} : ${minutes}`;
-            } else {
-                return `Daqui a ${days} dia às ${hours} : ${minutes}`;
-            }
+        if (days > 1) {
+            return `Daqui a ${days} dias às ${hours} : ${minutes}`;
+        } else if (days === 1) {
+            return `Daqui a ${days} dia às ${hours} : ${minutes}`;
         } else {
             return `${hours} : ${minutes}`;
         }
     }
 
-    buttonAdd.addEventListener('click', () => {
-        result.value = getTime(true, false); // add = true, subtract = false
-    });
-
-    buttonSubtract.addEventListener('click', () => {
-        result.value = getTime(false, true); // add = false, subtract = true
-    });
+    function convertTime(time) {
+        let hours = parseInt(time[0]);
+        let minutes = parseInt(time[1]);
+        return hours * 3600 + minutes * 60;
+    }
 })()
